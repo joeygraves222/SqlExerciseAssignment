@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="bootstrap.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+header
+{
+  min-width: 100%;
+  height: 100px;
+  background-color: #e03e3e;
+}
+footer
+{
+  min-width: 100%;
+  height: 100px;
+  background-color: #e03e3e;
+  margin-top: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body
+{
+  padding-bottom: 145px;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+}
+#logoImg
+{
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border-radius: 20px;
+}
+
+#titleTag
+{
+  text-align: center;
+}
+#navTag
+{
+  float: right;
+  margin-right: 40px;
+  color: white;
+}
+#navTagFoot
+{
+  float: right;
+  margin-right: 40px;
+  padding-top: 10px;
+  color: white;
+}
+.navItem
+{
+  color: white;
+}
+#leftDiv
+{
+  margin-left: 30px;
+}
+#midDiv
+{
+  padding: 20px;
+}
+#rightDiv
+{
+  margin-top: 60px;
+  padding-right: 10px;
+}
+.blogPost
+{
+  max-width: 550px;
+  min-width: 550px;
+  background-color: white;
+  min-height: 300px;
+  display:block;
+  margin-top: 80px;
+  box-shadow: 0 0 110px black;
+  border-radius: 30px;
+  padding: 45px;
+}
+.newPost
+{
+  max-width: 550px;
+  min-width: 550px;
+  background-color: white;
+  min-height: 500px;
+  display:block;
+  margin-top: 60px;
+  box-shadow: 0 0 130px black;
+  border-radius: 30px;
+}
+#titleInput
+{
+  margin-top: 20px;
+  margin-left: 45px;
+  border-radius: 10px;
+}
+#authorInput
+{
+  margin-top: 20px;
+  margin-left: 45px;
+  border-radius: 10px;
+}
+#newPostContent
+{
+  margin-top: 40px;
+  margin-left: 45px;
+  border-radius: 10px;
+  min-width: 460px;
+  max-width: 460px;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+}
+.blogTitle
+{
+  margin-left: 25px;
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bold;
+  color: #288d96;
+}
+.blogAuthor
+{
+  margin-left: 25px;
+  font-size: 20px;
+  color: #288d96;
+}
+.blogContent
+{
+  margin-left: 25px;
+  font-size: 15px;
+  color: black;
+}
+.editButton
+{
+  float: right;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+.deleteButton
+{
+float: right;
+margin-right: 25px;
+border-radius: 5px;
+}
+#submitBtn
+{
+  float: right;
+  border-radius: 5px;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+
+
+</style>
+</head>
+
+<body style="background-color: #ff9f56;">
+
+
+  <script>
+
+
+
+
+  function testFunc()
+  {
+    console.log("It was Clicked");
+  }
+  function postNewBlog()
+  {
+    var mainDiv = $('#blogDiv')[0];
+
+        var newPostDiv = document.createElement("div");
+         newPostDiv.className = 'blogPost center-block';
+
+        var deleteBtn = document.createElement("button");
+         deleteBtn.className = "deleteButton";
+        deleteBtn.innerHTML = 'Delete';
+
+
+        var newEditBtn = document.createElement("button");
+         newEditBtn.className = 'editButton';
+        newEditBtn.innerHTML="Edit";
+
+        var blogName = document.createElement("em");
+        var blogNameText = document.getElementById('titleInput').value;
+         blogName.className = 'blogTitle';
+         blogName.innerHTML = blogNameText;
+
+        var authorName = document.createElement("label");
+        var authorNameText = document.getElementById('authorInput').value;
+         authorName.className = 'blogAuthor';
+        authorName.innerHTML="By: " + authorNameText;
+
+        var blogsContent = document.createElement("p");
+        var blogsContentText = document.getElementById('newPostContent').value;
+        blogsContent.className = 'blogsContent';
+        blogsContent.innerHTML = blogsContentText;
+
+        var space = document.createElement("br");
+
+
+        newPostDiv.appendChild(deleteBtn);
+        newPostDiv.appendChild(newEditBtn);
+        newPostDiv.appendChild(blogName);
+        // space here
+        newPostDiv.appendChild(space);
+        newPostDiv.appendChild(authorName);
+        // space here
+
+        // space here
+        newPostDiv.appendChild(blogsContent);
+
+        mainDiv.appendChild(newPostDiv);
+
+        document.getElementById('titleInput').value = '';
+        document.getElementById('authorInput').value = '';
+        document.getElementById('newPostContent').value = document.getElementById('newPostContent').placeholder;
+        document.getElementById('newPostContent').value = '';
+
+      }
+
+
+
+      function deletePost(param)
+      {
+        param.parentElement.parentElement.removeChild(param.parentElement);
+      }
+
+      function editPost(param)
+      {
+      //  var text = param.parentElement."textarea".value;
+        var parentElementObj = param.parentElement;
+        parentElementObj.removeChild(param);
+        var newEditField = document.createElement("textfield");
+        newEditField.value = text;
+        parentElementObj.appendChild(newEditField);
+      }
+
+
+
+
+  </script>
+
+
+    <header id="HEADER">
+      <div class="center-block" style="width: 1100px;">
+        <div id="leftDiv" class="row">
+            <div class="col-md-4">
+              <img src="sql exercise design.png" id="logoImg" alt="logo">
+            </div>
+            <div id="midDiv" class="col-md-4">
+              <h1 id="titleTag">Blog Posts</h1>
+            </div>
+            <div id="rightDiv" class="col-md-4">
+              <nav id="navTag">
+              <a class="navItem">Home </a>|
+              <a class="navItem">Help</a>
+              </nav>
+            </div>
+          </div>
+      </div>
+    </header>
+    <!--Middle area-->
+        <div id="blogDiv" class="center-block">
+
+          <div class="newPost center-block">
+            <input id="titleInput" type="text" placeholder="Title"></br>
+            <input id="authorInput" type="text" placeholder="Author"></br>
+            <textarea id="newPostContent" placeholder="Write Your Blog Here"></textarea></br>
+            <button onclick="postNewBlog()" id="submitBtn">Submit</button>
+          </div>
+
+
+          <div class="blogPost center-block">
+
+          <button onclick="deletePost(this)" class="deleteButton">Delete</button><button onclick="editPost(this)" class="editButton">Edit</button>
+            <label class="blogTitle">Blog Title Here</label>
+          </br>
+          <label class="blogAuthor">By: Author's Name Here</label>
+        </br></br>
+        <p class="blogContent">Blog Content Here</p>
+          </div>
+        </div>
+
+
+
+
+
+<footer id="FOOTER">
+  <div class="center-block" style="width: 1100px;">
+    <nav id="navTagFoot">
+    <a class="navItem">Home </a>|
+    <a class="navItem">Help</a>
+  </nav>
+</div>
+</footer>
+</body>
+
+</html>
